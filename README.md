@@ -73,34 +73,193 @@
 			-- 액티비티가 멈췄다가 **다시 시작되기 바로 전**에 호출됨.
 
 5. **안드로이드 기본 위젯 살펴보기**
-- **텍스트뷰** : 텍스트뷰는 화면에 고정된 텍스트 문자열을 표시하는 뷰이다. 이 뷰의 문자열은 사용자가 수정할 수 없다.
-  - **상속계층도** 
-  java.lang.Object
-   ↳ android.view.View
-     ↳ android.widget.TextView
+- **텍스트뷰** : 텍스트뷰는 화면에 고정된 텍스트 문자열을 표시하는 뷰이다. 이 뷰의 문자열은 사용자가 수정할 수 없다.<br>
+	- **상속계층도** 
+
+				java.lang.Object
+				  ↳ android.view.View
+				    ↳ android.widget.TextView
     
-  - **이미지**
-		   ! [textView](Textview.png)
+	- **이미지**
+		  ! [textView](Textview.png)
+
+
+
+- **에디트텍스트** : 에디트텍스트는 사용자에게 입력을 받을 수 있는 뷰이며, 입력 기능을 제외하고는 텍스트뷰와 동일하다.
+	- **상속계층도**
+
+			java.lang.Object
+			  ↳ android.view.View
+			    ↳ android.widget.TextView
+			      ↳ android.widget.EditText
+   
+	- **이미지**
+		  ! [textView](Textview.png)
+
+
+- **버튼** :  버튼은 누를 수 있는 버튼들의 가장 일반적인 형태로 텍스트를 누를 수 있게 해준다. 
+	- **상속계층도** 
+
+			java.lang.Object
+			  ↳ android.view.View
+			    ↳ android.widget.TextView
+			      ↳ android.widget.EditText
+
+
+	 이미지버튼은 이미지를 설정할 수 있는 버튼이다.
+	- **상속계층도** 
+	
+					>java.lang.Object
+					   ↳ android.view.View
+					    ↳ android.widget.ImageView
+					     ↳ android.widget.ImageButton
+					 
+	- **주요 코드** : android:src="@drawable/ic_launcher" : 이미지 지정
 		
 
+- **이미지뷰** : 이미지를 보여주기 위한 뷰이다.
+	- **상속계층도** 
+		
+					> java.lang.Object
+					 ↳ android.view.View
+					  ↳ android.widget.ImageView
 
-- 에디트텍스트
-- 버튼
-- 이미지뷰
-- 체크박스
-- 토글버튼
-- 스위치
-- 라디오버튼
-- 스피너
-- 시크바
-- 카드뷰
-- 자동완성 텍스트뷰
-- 멀티 자동완성 텍스트뷰
+	- **주요 코드** :
+		-- android:contentDescription="Image_view" : 이미지를 보여줄 수 없을때 대체할 문자열<br>
+		-- android:src="@drawable/ic_launcher" : 이미지 지정<br>
+		
+- **체크박스** :  "체크됨"과 "체크되지 않음"이라는 두 개의 상태를 표시하는 버튼이다.
+	- **상속계층도** 
+	
+					>java.lang.Object
+					 ↳ android.view.View
+					  ↳ android.widget.TextView
+					   ↳ android.widget.Button
+					    ↳ android.widget.CompoundButton
+					     ↳ android.widget.CheckBox
 
+	- **주요 코드** :
+		 -- android:text="check" : 체크박스 옆에 나오는 문자열이다.<br>
+		 -- android:checked="true" : 체크된 상태<br>
+		
+- **토글버튼** : 전원 스위치처럼 "ON", "OFF"를 표시하는 버튼이다.
+	- **상속계층도** 
+				
+					> java.lang.Object
+					 ↳ android.view.View
+					  ↳ android.widget.TextView
+					   ↳ android.widget.Button
+					    ↳ android.widget.CompoundButton
+					     ↳ android.widget.ToggleButton
+	  
+	- **주요 코드** :
+		 -- android:textOn="On" : 토글버튼이 ON일때 표시되는 문자열<br>
+		 -- android:textOff="Off" : 토글버튼이 OFF일때 표시되는 문자열<br>
+		 
+- **스위치** : 두 개의 상태를 표시하는 버튼이다.
+	- **상속계층도** 
+	
+				> java.lang.Object
+			  	 ↳ android.view.View
+			   	  ↳ android.widget.TextView
+			     	   ↳ android.widget.Button
+				    ↳ android.widget.CompoundButton
+				     ↳ android.widget.Switch
 
+	- **주요 코드** :
+		 -- android:textOn="On" : 토글버튼이 ON일때 표시되는 문자열<br>
+		 -- android:textOff="Off" : 토글버튼이 OFF일때 표시되는 문자열<br>
+		 -- android:checked="true" : 체크된 상태<br>
+		 
+- **라디오버튼** :  여러 개 중에서 한 개를 선택할 수 있는 선택 버튼이다. 라디오 버튼은 일반적으로 라디오 그룹(RadioGroup)으로 묶어서 사용한다.
+	- **상속계층도** 
+	
+					> java.lang.Object
+					 ↳ android.view.View
+					  ↳ android.widget.TextView
+					   ↳ android.widget.Button
+					    ↳ android.widget.CompoundButton
+					     ↳ android.widget.RadioButton
+	
+	- **주요 코드** :
+		 -- android:checked="true" : 체크된 상태<br>
+		 
+- **스피너** : 사용자가 여러 개의 아이템 중에서 한 개를 선택할 수 있게 해주는 뷰이다. 
+		- 아이템들은 어댑터나 배열로 설정 가능<br>
+		- getSelectedView() 메소드로 선택한 텍스트를 가지고 올 수 있음<br>
+		- XML의 android:prompt 속성에는 반드시 문자열 자원 참조를 설정해야 함<br>
+		
+	- **상속계층도** 
+	
+				> java.lang.Object
+				 ↳ android.view.View
+				  ↳ android.view.ViewGroup
+				   ↳ android.widget.AdapterView <T extends android.widget.Adapter>
+				    ↳ android.widget.AbsSpinner
+				     ↳ android.widget.Spinner
+         
+- **시크바** :   ProgressBar를 확장하여 사용자가 터치로 상태를 변경할 수 있도록 한 뷰이다. 시크바는 볼륨 조절이나 화면 밝기 조절 등에 사용할 수 있으며 발생된 이벤트는 SeekBar.OnSeekBarChangeListener 인터페이스를 통해 처리할 수 있다.
 
+	- **상속계층도** 
+				  			
+					> java.lang.Object
+					  ↳ android.view.View
+					    ↳ android.widget.TextView
+					      ↳ android.widget.Button
+						↳ android.widget.CompoundButton
+						  ↳ android.widget.RadioButton
 
+	- **주요 코드** :
+		 -- android:max="100" : 시크바의 최대 값<br>
+		 -- android:progress="50" : 시크바의 현재 값<br>
+		 -- android:secondaryProgress="75" : 시크바의 기준 값이며 사용자에게 시크바를 어느 정도 움직이는 것이 적당한지를 보여주기 위한 용도로 사용할 수 있다.<br>
 
+- **카드뷰** : - 둥근 테두리와 그림자를 가진 FrameLayout
+	       - elevation으로 그림자 효과를 줄 수 있다.
+	       
+	- **상속계층도** 
+				  			
+					
+					> java.lang.Object
+					  ↳ android.view.View
+					    ↳ android.view.ViewGroup
+					      ↳	android.widget.FrameLayout
+						↳ android.support.v7.widget.CardView
+					
+	- **주요 코드** :
+		-- card_view:cardCornerRadius : 모서리의 반지름<br>
+		-- card_view:cardBackgroundColor : 카드의 배경색 지정<br>
+		
+	- **종속성 추가** :
+	
+				> dependencies {
+    						...
+    						compile 'com.android.support:cardview-v7:21.0.+'
+												  }
+	
+- **자동완성 텍스트뷰** : 자동완성 텍스트뷰는 사용자 입력을 자동으로 완성해주는 텍스트뷰(TextView)이다. 이름이 텍스트뷰이기는 하지만 실제 속성은 에디트텍스트(EditText)에 더 가깝다. 사용자가 문자열 입력 시 자동으로 보여줄 문자열들은 ArrayAdapter를 사용해서 자동완성 텍스트뷰에 설정해야 한다. 
 
+	- **상속계층도**
+	
+				> java.lang.Object
+  				  ↳ android.view.View
+   				   ↳ android.widget.TextView
+				    ↳ android.widget.EditText
+				     ↳ android.widget.AutoCompleteTextView
+				     
+	- **주요 코드** : -- android:completionThreshold="2" : 사용자가 입력한 글자가 몇 글자일 때 문자열 리스트를 보여줄지를 지정하는 속성이다.<br>
+	
 
+- **멀티 자동완성 텍스트뷰** : 멀티 자동완성 텍스트뷰는 사용자 입력을 자동으로 완성해주는 텍스트뷰(TextView)이다. 멀티 자동완성 텍스트뷰는 자동완성 텍스트뷰와 한 가지 차이점을 제외하고는 동일하다.<Br>
+		--여러 개의 단어 완성<br>
+		--토크나이저 설정 필요(CommaTokenizer: 쉼표로 단어들을 구분)<Br>
+		자동완성 텍스트뷰는 한 개의 단어만을 자동으로 완성시켜 주며, 멀티 자동완성 텍스트뷰는 여러 개의 단어를 자동으로 완성시켜 준다.<br>
 
+	- **상속계층도**
+	
+				> java.lang.Object
+  				  ↳ android.view.View
+   				   ↳ android.widget.TextView
+ 				    ↳ android.widget.EditText
+				     ↳ android.widget.AutoCompleteTextView
+				      ↳ android.widget.MultiAutoCompleteTextView
