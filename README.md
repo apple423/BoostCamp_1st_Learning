@@ -1,7 +1,7 @@
-**안드로이드 1주차 커리큘럼**
+# 안드로이드 1주차 커리큘럼
 안드로이드 기본 구성과 개발 환경을 이해하고 안드로이드 화면을 구성하기 위해 필요한 요소들을 이해한다. 특히 레이아웃과 뷰컨테이너 그리고 주요 위젯들의 특징 및 사용 방법을 이해한다.
 
-1. **안드로이드의 이해와 환경**
+# 1. **안드로이드의 이해와 환경**
 - 안드로이드 개념 : 안드로이드, 세계에서 가장 인기있는 모바일 플랫폼
 	 - 글로벌 파트너쉽과 대규모의 사용자
 	 - 빠른 기술 혁신 : 사용자와 개발자들에게 최신의 기술을 제공
@@ -19,19 +19,19 @@
 	- 안드로이드 버전별 특징
 	- 안드로이드 개발환경
 	
-2. **안드로이드 개발 환경 구성**
+# 2. **안드로이드 개발 환경 구성**
 
  - 안드로이드 스튜디오 설치 및 화면 구성
  - 에뮬레이터 실행하기
  - 실제 안드로이드 기기 연동하기
 
-3. **안드로이드 첫 번째 프로젝트 실행하기**
+# 3. **안드로이드 첫 번째 프로젝트 실행하기**
 
  - 프로젝트 생성
  - 프로젝트 실행
  - 프로젝트 구성 요소의 이해
 
-4. **액티비티 살펴보기**
+# 4. **액티비티 살펴보기**
 
 - **액티비티 이해**
 
@@ -72,7 +72,7 @@
  	- **onRestart():** 	<br>
 			-- 액티비티가 멈췄다가 **다시 시작되기 바로 전**에 호출됨.
 
-5. **안드로이드 기본 위젯 살펴보기**
+# 5. 안드로이드 기본 위젯 살펴보기
 - **텍스트뷰** : 텍스트뷰는 화면에 고정된 텍스트 문자열을 표시하는 뷰이다. 이 뷰의 문자열은 사용자가 수정할 수 없다.<br>
 	- **상속계층도** 
 
@@ -264,7 +264,7 @@
 				     ↳ android.widget.AutoCompleteTextView
 				      ↳ android.widget.MultiAutoCompleteTextView
 				      
-6.**안드로이드 뷰 컨테이너 살펴보기**
+# 6. 안드로이드 뷰 컨테이너 살펴보기
 - **스크롤뷰** : 스크롤할 수 없는 뷰가 스크롤될 수 있게 해주는 컨테이너이다.
 	- **상속계층도**
 	
@@ -346,7 +346,7 @@
 		- GridLayoutManager는 그리드 형식으로 항목을 표시. <br>
 		- StaggeredGridLayoutManager는 지그재그형의 그리드 형식으로 항목을 표시.
 	 
-7. **안드로이드 레이아웃 살펴보기**
+# 7. 안드로이드 레이아웃 살펴보기
 
 - **프레임 레이아웃** : 왼쪽 상단을 기준으로 배치하는 레이아웃이다
 
@@ -403,8 +403,110 @@
  
 
 	 
-	 
-	 
-				 
+# 8. 위젯의 이벤트 처리하기
 
-				   
+- **버튼 클릭 처리하기** <br>
+	① 익명 클래스를 이용한 이벤트 처리
+	
+	  	  	Button button1 = (Button) findViewById(R.id.button1) ;
+    			  button1.setOnClickListener(new Button.OnClickListener() {
+       		 		 @Override
+        			public void onClick(View view) {
+           			 // TODO : click event
+				}
+   				});
+	
+	 장점 : 간편하고 직관적임<br>
+	 단점 : 버튼이 많을 시 비효율적 <br>
+	 
+	 ②  익명 클래스의 객체를 모든 Button의 이벤트 리스너로 사용
+	 
+	 		 Button.OnClickListener onClickListener = new Button.OnClickListener() {
+			 @Override public void onClick(View view) { 
+			 // TODO : click event
+			 }} ;
+			 
+			 ...
+			 
+			 Button button1 = (Button) findViewById(R.id.button1);
+			 button1.setOnClickListener(onClickListener);
+			 
+	 장점 : 버튼이 많을 시 좋음<br>
+	 단점 : 익명 클래스 사용의 문제로 외부에 변수 참조 못 함<br>
+	 
+	 ③ 이벤트 리스너 클래스 생성
+	 
+			 class BtnOnClickListener implements Button.OnClickListener { 
+			 @Override public void onClick(View view) {
+			 
+			 // TODO : click event
+
+			}
+			}
+			
+			...
+			
+			BtnOnClickListener onClickListener = new BtnOnClickListener() ;
+			 Button button1 = (Button) findViewById(R.id.button1);
+			 button1.setOnClickListener(onClickListener);
+
+	장점 : 버튼이 많을때 좋고, 가독성이 오름 <br>
+	
+	④ Activity에 Listener implements
+	
+			public class MainActivity extends AppCompatActivity implements Button.OnClickListener {
+			
+			 protected void onCreate(Bundle savedInstanceState) {
+
+			Button button1 = (Button) findViewById(R.id.button1);
+			 button1.setOnClickListener(this);
+			
+			}
+			
+			public void onClick(View view) {
+			
+			// TODO : click event
+			
+			}
+		
+			
+			}
+			
+	장점 : 이벤트 핸들러 함수에서 많은 수의 Activity 멤버를 액세스해야 하는 경우. <Br>
+	
+	
+	⑤ XML에서 onClick에 함수 추가
+	
+			<Button
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:id="@+id/buttonRed"
+				android:text="RED"
+				android:layout_weight="1"
+				android:onClick="onButtonClick" />
+
+
+
+
+- **위젯 터치 이벤트 처리하기**
+	① Activity에서 onTouchEvent 메소드 구현을 통한 처리
+	② onTouchListener 구현을 통한 처리, 구현은 클릭이벤트와 같이 다양한 방법으로 구현 가능
+	
+	**MotionEvent**  
+	ACTION_DOWN : 누르기<Br>
+	ACTION_UP : 때기<Br>
+	ACTION_CANCLE : 누르다 취소하기 <br>
+	ACTION_MOVE : 화면에서 움직이기<br>
+	그외 모션 이벤트 : https://developer.android.com/reference/android/view/MotionEvent.html
+	
+	
+
+
+- **그 밖의 다양한 이벤트 종류 살펴보기**<br>
+	① onClick() : 해당 항목을 터치하거나 항목 위에 포커스가 맞춰진 상태에서 엔터를 할 경우<br>
+	② onLongClick() : 해당 항목을 길게 누르거나 항목 위에 포커스가 맞춰진 상태에서 길게 엔터를 할 경우<br>
+	③ onFocusChange() : 해당 항목으로 이동하거나 멀어질때 <br>
+	④ onKey() : 기기의 키를 누를경우 (ex) Back button
+	⑤ onTouch() : 누르기 손때기 등 화면에서 이루어지는 모든 움직임 <br>
+	⑥ onCreateContextMenu() : Context가 생성 중일 경우 <br>
+				 
