@@ -297,7 +297,114 @@
 	
 	- **FragmentStatePagerAdapter** :  페이지를 이동하여 다음 Fragment가 표시되면 이전 Fragment는 메모리 상에서 제거된다. 사용자가 화면을 다시 반대로 전환하면 기존에 저장된 상태값(state)을 기반으로 재생성 한다. 많은 수의 페이지에 용이
 	
-- **데이트피커**
-- **타임피커**
-- **리사이클러뷰**
+- **데이트피커** : 날짜 선택을 위한 위젯
+	- **상속계층도**
+	
+				java.lang.Object
+ 				  ↳android.view.View
+ 	  			   ↳android.view.ViewGroup
+ 	 		            ↳android.widget.FrameLayout
+ 	 	 	     	     ↳android.widget.DatePicker
+				     
+
+	- **주요 코드** : -- void init (int year, int monthOfYear, int dayOfMonth, DatePicker.OnDateChangedListener onDateChangedListener) : 데이터피커를 초기화하는 메소드 <br>
+		
+		--android:datePickerMode : 캘린더와 스피너 중에 선택 가능
+
+- **타임피커** : 시간 선택을 위한 위젯
+	- **상속계층도** 
+	
+				java.lang.Object
+  				 ↳android.view.View
+ 				   ↳android.view.ViewGroup
+ 	 			    ↳android.widget.FrameLayout
+				     ↳android.widget.TimePicker
+
+	- **주요 코드** : -- android:timePickerMode : 시계모양과 스피너 중에 선택 가능
+				  
+
+- **리사이클러뷰** : RecyclerView는 제한된 화면에서 큰 데이터 세트를 제공하기 위한 유연한 위젯이다.
+	- **상속계층도** 
+	
+				java.lang.Object
+				 ↳android.view.View
+				  ↳android.view.ViewGroup
+				   ↳android.support.v7.widget.RecyclerView
+				  	
+	- **주요 특징** : <br> 
+	-- RecyclerView.Adapter<ViewHolder> : UI와 데이터를 연결하는 역할
+	
+	 	- public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) : ViewHolder를 생성하고 초기화하는 메소드<br>
+	 
+	 	- public void onBindViewHolder(ViewHolder viewHolder, int position) : position에 따라 holder에서 데이터를 이용하여 바인딩을 하는 메소드
+	 	- public int getItemCount() : item 수
+	 
+	 -- RecyclerView.ViewHolder : Recycler뷰에서 사용할 아이템들을 작성
+	 
+	 -- LayoutManager : <br>
+	 	- LinearLayoutManager는 항목을 가로 또는 세로 스크롤 목록으로 표시. <br>
+		- GridLayoutManager는 그리드 형식으로 항목을 표시. <br>
+		- StaggeredGridLayoutManager는 지그재그형의 그리드 형식으로 항목을 표시.
+	 
+7. **안드로이드 레이아웃 살펴보기**
+
+- **프레임 레이아웃** : 왼쪽 상단을 기준으로 배치하는 레이아웃이다
+
+	- **상속계층도**
+
+				java.lang.Object
+ 				 ↳ android.view.View
+				  ↳ android.view.ViewGroup
+				   ↳ android.widget.FrameLayout
+
+
+- **리니어 레이아웃** : 선형으로 뷰들을 관리하는 레이아웃을 말한다
+
+	- **상속계층도**
+	
+				java.lang.Object
+				↳ android.view.View
+				 ↳ android.view.ViewGroup
+				  ↳ android.widget.LinearLayout
+	
+	- **주요 특징** : android:orientation = "vertical" or "horizontal" : 수평 혹은 수직으로 레이아웃 구성
+	
+
+- **릴레티브 레이아웃** : 상대적 위치에 기반하여 뷰들을 배치하는 레이아웃이다
+
+	- **상속계층도**
+
+				java.lang.Object
+ 				 ↳ android.view.View
+				  ↳ android.view.ViewGroup
+				   ↳ android.widget.RelativeLayout
+				   
+				   
+	- **주요 특징** : android:layout_toRightOf, android:layout_toLeftOf, android:layout_below : id에 따른 상대적 위치
+			 android:layout_alignParentRight="true" : 부모의 오른쪽에 배치
+
+- **컨스트레인트 레이아웃** : 유연하게 위젯의 위치와 크기를 조절 할 수 있는 레이아웃
+
+	- **상속계층도**
+	
+				java.lang.Object
+				 ↳android.view.View
+				  ↳android.view.ViewGroup
+				   ↳android.support.constraint.ConstraintLayout
+				   
+				   
+	- **주요 특징** : app:layout_constraintLeft_toLeftOf : id에 따른 상대적 위치 <Br>
+			 app:layout_constraintHorizontal_bias : 수평으로 상대적 위치
+
+- **퍼센트 레이아웃** : 퍼센트를 통한 레이아웃 구성 Deprecated since API level 26.0.0-beta1<br>
+
+	- PercentFrameLayout, PercentRelativeLayout
+
+ 
+
+	 
+	 
+	 
+				 
+
 				   
