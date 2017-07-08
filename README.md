@@ -263,3 +263,41 @@
  				    ↳ android.widget.EditText
 				     ↳ android.widget.AutoCompleteTextView
 				      ↳ android.widget.MultiAutoCompleteTextView
+				      
+6.**안드로이드 뷰 컨테이너 살펴보기**
+- **스크롤뷰** : 스크롤할 수 없는 뷰가 스크롤될 수 있게 해주는 컨테이너이다.
+	- **상속계층도**
+	
+				> java.lang.Object
+ 				 ↳ android.view.View
+   				  ↳ android.view.ViewGroup
+				   ↳ android.widget.FrameLayout
+				    ↳ android.widget.ScrollView
+
+
+- **수평 스크롤뷰** : 수평 스크롤뷰(HorizontalScrollView)는 스크롤뷰(ScrollView)와 상당히 많이 비슷하다. 다른 점이라면, 스크롤뷰는 수직 방향이고 수평 스크롤뷰는 수평 방향이라는 것만 다를 뿐이다.
+	- **상속계층도**
+	
+				> java.lang.Object
+ 				 ↳ android.view.View
+   				  ↳ android.view.ViewGroup
+				   ↳ android.widget.FrameLayout
+				    ↳ android.widget.HorizontalScrollView
+
+- **뷰페이저** : 유저가 뷰를 왼쪽 오른쪽으로 넘길 수 있도록 해주는 레이아웃 메니저. PageAdapter를 구현하여야 한다. 뷰페이저는 Fragment를 위해서 주로 사용한다.
+
+	- **상속계층도**
+
+				java.lang.Object
+				 ↳android.view.View
+				  ↳android.view.ViewGroup
+				   ↳android.support.v4.view.ViewPager
+				
+	- **FragmentPagerAdapter** : 화면을 슬라이딩으로 전환할 때 한 번 생성된 Fragment를 계속 메모리상 가지고 있다. 이전 Fragment로 슬라이딩을 해서 돌아간다고 하면 이전에 생성된 Fragment로 돌아간다. 작은 수의 페이지에 용이
+	
+	- **FragmentStatePagerAdapter** :  페이지를 이동하여 다음 Fragment가 표시되면 이전 Fragment는 메모리 상에서 제거된다. 사용자가 화면을 다시 반대로 전환하면 기존에 저장된 상태값(state)을 기반으로 재생성 한다. 많은 수의 페이지에 용이
+	
+- **데이트피커**
+- **타임피커**
+- **리사이클러뷰**
+				   
